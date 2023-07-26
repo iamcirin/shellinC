@@ -17,7 +17,8 @@ char **split_str(char *st, char *delim)
 	if (!delim)
 		delim = " ";
 	for (i = 0; st[i] != '\0'; i++)
-		if (!check_delim(st[i], delim) && (check_delim(st[i + 1], delim) || !st[i + 1]))
+		if (!check_delim(st[i],
+		 delim) && (check_delim(st[i + 1], delim) || !st[i + 1]))
 			wordnum++;
 
 	if (wordnum == 0)
@@ -47,4 +48,3 @@ char **split_str(char *st, char *delim)
 	s[j] = NULL;
 	return (s);
 }
-

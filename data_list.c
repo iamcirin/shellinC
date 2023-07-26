@@ -28,7 +28,7 @@ void set_info(info_t *data_list, char **av)
 		if (!data_list->argv)
 		{
 
-			data_list->argv = (char **)malloc(sizeof(char *) * 2);
+			data_list->argv = malloc(sizeof(char *) * 2);
 			if (data_list->argv)
 			{
 				data_list->argv[0] = string_dup(data_list->arg);
