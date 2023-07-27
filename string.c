@@ -12,7 +12,7 @@ int string_len(char *str)
 	if (!str)
 		return (0);
 
-	while (*str != '\0')
+	while (*str++)
 		n++;
 	return (n);
 }
@@ -35,21 +35,20 @@ int string_cmp(char *str1, char *str2)
 	if (*str1 == *str2)
 		return (0);
 	else
-		return (0);
-
+		return (*str1 < *str2 ? -1 : 1);
 }
 
 /**
  * string_starts_with - a function to check string
  * @str: a pointer to string to search
- * @prefix: a pointer to the prfix to find
+ * @prefixs: a pointer to the prfix to find
  *
  * Return: returns an address of next char of str or NULL
  */
-char *string_starts_with(const char *str, const char *prefix)
+char *string_starts_with(const char *str, const char *prefixs)
 {
-	while (*prefix != '\0')
-		if (*prefix++ != *str++)
+	while (*prefixs)
+		if (*prefixs++ != *str++)
 			return (NULL);
 	return ((char *)str);
 }
@@ -62,12 +61,13 @@ char *string_starts_with(const char *str, const char *prefix)
  */
 char *string_concat(char *str_dest, char *str_src)
 {
-	while (*str_dest != '\0')
+	char *ret = str_dest;
+
+	while (*str_dest)
 		str_dest++;
-	while (*str_src != '\0')
+	while (*str_src)
 		*str_dest++ = *str_src++;
 	*str_dest = *str_src;
-
-	return (str_dest);
+	return (ret);
 }
 

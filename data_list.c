@@ -24,7 +24,7 @@ void set_info(info_t *data_list, char **av)
 	data_list->fname = av[0];
 	if (data_list->arg)
 	{
-		data_list->argv = (char **)strtok(data_list->arg, " \t");
+		data_list->argv = (char **)split_str(data_list->arg, " \t");
 		if (!data_list->argv)
 		{
 

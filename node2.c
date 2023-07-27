@@ -78,17 +78,17 @@ size_t print_list(const list_t *h)
 /**
  * node_starts_with - a function that returns node
  * @head: pointer to list head
- * @prefix: string to match
+ * @prefixs: string to match
  * @c: the next character after prefix to match
  * Return: match node or null
  */
-list_t *node_starts_with(list_t *head, char *prefix, char c)
+list_t *node_starts_with(list_t *head, char *prefixs, char c)
 {
 	char *p = NULL;
 
 	while (head)
 	{
-		p = string_starts_with(head->str, prefix);
+		p = string_starts_with(head->str, prefixs);
 		if (p && ((c == -1) || (*p == c)))
 			return (head);
 		head = head->next;
